@@ -1,0 +1,32 @@
+VAR
+    sentence : STRING;
+    length, word_count, vowel_count : INTEGER := 0;
+    char : CHARACTER;
+    vowels : STRING := "aeiouAEIOU";  // Set of vowels for comparison
+BEGIN
+
+    Read(sentence);  // Read the sentence as input from the user
+
+    FOR each character in sentence DO
+        IF character = '.' THEN
+            BREAK;  // Stop if we reach the period (end of sentence)
+        END_IF
+
+        length := length + 1;  // Increment length for each character
+
+        IF character is a vowel (i.e., character in vowels) THEN
+            vowel_count := vowel_count + 1;  // Increment vowel count
+        END_IF
+
+        IF character = ' ' THEN
+            word_count := word_count + 1;  // Increment word count for each space
+        END_IF
+    END_FOR
+
+    // Since the loop counts words based on spaces, we need to add 1 to account for the last word.
+    word_count := word_count + 1;
+
+    Write("Length of the sentence (excluding the period): ", length);
+    Write("Number of words in the sentence: ", word_count);
+    Write("Number of vowels in the sentence: ", vowel_count);
+END
